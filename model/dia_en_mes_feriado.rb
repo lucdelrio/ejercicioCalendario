@@ -1,6 +1,6 @@
 require_relative '../model/feriado'
 
-class DiaFeriado < Feriado
+class DiaEnMesFeriado < Feriado
 
   def initialize (dia)
     @feriado = DateTime.strptime(dia,"%d/%m")
