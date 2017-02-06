@@ -15,11 +15,10 @@ class Calendario
   end
 
   def consultar_dia_laborable (dia_a_consultar)
-    @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
     @dia_laborable = 0
-    if @feriados != nil && @feriados.size > 0
+    if @feriados.size > 0
         @feriados.each do |consulta|
-          @dia_laborable = consulta.verificar_feriado (@fecha)
+          @dia_laborable = consulta.verificar_feriado (dia_a_consultar)
         end
     end
 

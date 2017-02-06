@@ -8,8 +8,8 @@ class DiaSemanaFeriado < Feriado
 
   def verificar_feriado (dia_a_consultar)
     @laborable = 0
-
-    @dia = dia_a_consultar.strftime ("%A")
+    @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
+    @dia = @fecha.strftime ("%A")
     @dia = @dia.downcase
 
     if @dia == @feriado

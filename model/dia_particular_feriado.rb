@@ -9,9 +9,9 @@ class DiaParticularFeriado < Feriado
 
   def verificar_feriado (dia_a_consultar)
     @laborable = 0
-    @dia = dia_a_consultar
+    @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
 
-    if @dia == @feriado
+    if @fecha == @feriado
       @laborable = 1
     end
     @laborable

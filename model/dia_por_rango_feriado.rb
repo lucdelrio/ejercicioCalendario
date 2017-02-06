@@ -1,8 +1,9 @@
+require_relative '../model/feriado'
 
-class DiaSemanaPorRangoFeriado < Feriado
+class DiaPorRangoFeriado < Feriado
 
-  def initialize (inicio, fin, dia_semana)
-    @feriado = dia_semana.downcase
+  def initialize (inicio, fin, dia)
+    @feriado = DateTime.strptime(dia,"%d/%m")
     @inicio_rango = DateTime.strptime(inicio,"%d/%m/%Y")
     @fin_rango = DateTime.strptime(fin,"%d/%m/%Y")
   end
@@ -12,10 +13,9 @@ class DiaSemanaPorRangoFeriado < Feriado
     @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
 
     if @fecha.between?(@inicio_rango,@fin_rango)
-      @dia = @fecha.strftime ("%A")
-      @dia = @dia.downcase
 
-      if @dia == @feriado
+      @dia_a_consultar = DateTime.strptime(dia_a_consultar,"%d/%m")
+      if @dia_a_consultar == @feriado
         @laborable = 1
       end
     end
