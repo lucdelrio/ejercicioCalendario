@@ -15,19 +15,15 @@ class Calendario
   end
 
   def consultar_dia_laborable (dia_a_consultar)
-    @dia_laborable = 0
+    @dia_laborable = true
     if @feriados.size > 0
-        @feriados.each do |consulta|
-          @dia_laborable = consulta.verificar_feriado (dia_a_consultar)
+      @feriados.each do |feriado|
+        laborable = feriado.verificar_feriado (dia_a_consultar)
+        if laborable == false
+          @dia_laborable = laborable
         end
+      end
     end
-
-    if @dia_laborable == 1
-      @laborable = false
-    else
-      @laborable = true
-    end
-    @laborable
+    @dia_laborable
   end
-
 end

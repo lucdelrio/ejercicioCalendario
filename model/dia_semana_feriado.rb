@@ -7,13 +7,12 @@ class DiaSemanaFeriado < Feriado
   end
 
   def verificar_feriado (dia_a_consultar)
-    @laborable = 0
     @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
     @dia = @fecha.strftime ("%A")
     @dia = @dia.downcase
 
     if @dia == @feriado
-      @laborable = 1
+      @laborable = false
     end
     @laborable
   end
