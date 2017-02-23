@@ -11,8 +11,7 @@ describe 'Dia en un mes Feriado por un rango de tiempo' do
     fin = '1/1/2013'
     dia_por_rango_feriado = DiaPorRangoFeriado.new(inicio, fin, feriado)
     dia_a_consultar = '15/10/2010'
-    laborable = nil
-    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq laborable
+    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq true
   end
 
   it 'Se establece dia feriado por un rango de validez espera laborable con fecha fuera de rango' do
@@ -21,8 +20,7 @@ describe 'Dia en un mes Feriado por un rango de tiempo' do
     fin = '1/1/2013'
     dia_por_rango_feriado = DiaPorRangoFeriado.new(inicio, fin, feriado)
     dia_a_consultar = '4/4/2024'
-    laborable = nil
-    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq laborable
+    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq true
   end
 
   it 'Se establece dia feriado por un rango de validez espera no laborable' do
@@ -31,8 +29,7 @@ describe 'Dia en un mes Feriado por un rango de tiempo' do
     fin = '1/1/2013'
     dia_por_rango_feriado = DiaPorRangoFeriado.new(inicio, fin, feriado)
     dia_a_consultar = '4/4/2004'
-    laborable = false
-    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq laborable
+    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq false
   end
 
   it 'Se establece dia feriado por un rango de validez espera no laborable probando con otro anio' do
@@ -41,8 +38,7 @@ describe 'Dia en un mes Feriado por un rango de tiempo' do
     fin = '1/1/2013'
     dia_por_rango_feriado = DiaPorRangoFeriado.new(inicio, fin, feriado)
     dia_a_consultar = '4/4/2008'
-    laborable = false
-    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq laborable
+    expect(dia_por_rango_feriado.verificar_feriado(dia_a_consultar)).to eq false
   end
 
 end

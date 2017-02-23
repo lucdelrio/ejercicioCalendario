@@ -52,13 +52,12 @@ describe 'Calendario' do
     calendario.agregar_feriado (dia_semana)
     calendario.agregar_feriado (dia_de_mes)
 
-    laborable = false
     dia_a_consultar = '25/12/2014'
 
     expect(calendario.consultar_dia_laborable(dia_a_consultar)).to eq false
   end
 
-  it 'Se integran feriados y se pregunta por 5/7 NO laborable' do
+  it 'Se integran feriados y se pregunta por 5/7 espera NO laborable' do
 
     calendario = Calendario.new
 

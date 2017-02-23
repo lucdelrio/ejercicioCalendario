@@ -7,12 +7,14 @@ class DiaEnMesFeriado < Feriado
   end
 
   def verificar_feriado (dia_a_consultar)
-    @dia = DateTime.strptime(dia_a_consultar,"%d/%m")
+    dia = DateTime.strptime(dia_a_consultar,"%d/%m")
 
-    if @dia == @feriado
-      @laborable = false
+    if dia == @feriado
+      laborable = false
+    else
+      laborable = true
     end
-    @laborable
+    return laborable
   end
 
 end

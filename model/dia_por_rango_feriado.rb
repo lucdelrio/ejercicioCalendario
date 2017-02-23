@@ -9,15 +9,15 @@ class DiaPorRangoFeriado < Feriado
   end
 
   def verificar_feriado (dia_a_consultar)
-    @fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
+    fecha = DateTime.strptime(dia_a_consultar,"%d/%m/%Y")
+    laborable = true
+    if fecha.between?(@inicio_rango,@fin_rango)
 
-    if @fecha.between?(@inicio_rango,@fin_rango)
-
-      @dia_a_consultar = DateTime.strptime(dia_a_consultar,"%d/%m")
-      if @dia_a_consultar == @feriado
-        @laborable = false
+      dia_a_consultar = DateTime.strptime(dia_a_consultar,"%d/%m")
+      if dia_a_consultar == @feriado
+        laborable = false
       end
     end
-    @laborable
+    laborable
   end
 end
